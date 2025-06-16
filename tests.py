@@ -19,7 +19,7 @@ cosinus = FourierAssembler(1 / 4,
 sinus = FourierAssembler(0,
                          lambda k: 0,
                          lambda k: (6 * sin(pi * k / 2) - pi * k - 2 * pi * k * cos(pi * k / 2)) * 2 / (
-                                     pi ** 2 * k ** 2),
+                                 pi ** 2 * k ** 2),
                          lambda x: pi / 2 * x,
                          "По синусам")
 
@@ -32,7 +32,10 @@ boundary = (0, 2)
 
 
 def visualize_test(assembler: FourierAssembler):
-    FourierVisualizer(func, assembler, boundary).visualize(1, 5, 10, 30, 70)
+    FourierVisualizer(func, assembler, boundary).visualize(*PARTIAL_SUMS)
+
+
+PARTIAL_SUMS = (1, 5, 10, 30, 70)
 
 
 def main():
